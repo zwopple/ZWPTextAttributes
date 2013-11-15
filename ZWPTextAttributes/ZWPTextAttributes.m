@@ -290,18 +290,7 @@
 @dynamic dictionaryRepresentation;
 
 - (NSDictionary *)dictionaryRepresentation {
-    NSMutableDictionary *representation = [self.attributesForWriting mutableCopy];
-    for(NSString *key in representation.allKeys) {
-        id value = [representation objectForKey:key];
-        if([value isKindOfClass:[NSParagraphStyle class]] ||
-           [value isKindOfClass:[NSArray class]] ||
-           [value isKindOfClass:[NSString class]] ||
-           [value isKindOfClass:[NSDictionary class]] ||
-           [value isKindOfClass:[NSShadow class]]) {
-            representation[key] = [value copy];
-        }
-    }
-    return representation;
+    return [[self copy] attributesForWriting];
 }
 
 #pragma mark - Initialization
@@ -327,7 +316,8 @@
         id value = attributes[key];
         
         if([value isKindOfClass:[NSString class]] ||
-           [value isKindOfClass:[NSArray class]]) {
+           [value isKindOfClass:[NSArray class]] ||
+           [value isKindOfClass:[NSShadow class]]) {
             attributes[key] = [value copy];
         } else if([value isKindOfClass:[NSParagraphStyle class]]) {
             attributes[key] = [value mutableCopy];
