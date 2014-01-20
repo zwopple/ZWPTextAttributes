@@ -290,7 +290,7 @@
 @dynamic dictionaryRepresentation;
 
 - (NSDictionary *)dictionaryRepresentation {
-    return [self.attributesForWriting copy];
+    return [[self copy] attributesForWriting];
 }
 
 #pragma mark - Initialization
@@ -316,7 +316,8 @@
         id value = attributes[key];
         
         if([value isKindOfClass:[NSString class]] ||
-           [value isKindOfClass:[NSArray class]]) {
+           [value isKindOfClass:[NSArray class]] ||
+           [value isKindOfClass:[NSShadow class]]) {
             attributes[key] = [value copy];
         } else if([value isKindOfClass:[NSParagraphStyle class]]) {
             attributes[key] = [value mutableCopy];
