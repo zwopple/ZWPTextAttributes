@@ -50,7 +50,7 @@
 - (void)setKern:(CGFloat)kern {
     self.attributesForWriting[NSKernAttributeName] = @(kern);
 }
-#if __IPHONE_OS_VERSION_MIN_ALLOWED > __IPHONE_6_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
 - (NSUnderlineStyle)strikethroughStyle {
     return [self.attributesForWriting[NSStrikethroughStyleAttributeName] integerValue];
 }
@@ -96,7 +96,7 @@
     self.attributesForWriting[NSShadowAttributeName] = shadow;
 }
 
-#if __IPHONE_OS_VERSION_MIN_ALLOWED > __IPHONE_6_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
 @dynamic textEffect;
 @dynamic attachment;
 @dynamic link;
@@ -176,7 +176,7 @@
 @dynamic lineHeightMultiple;
 @dynamic paragraphSpacingBefore;
 @dynamic hyphenationFactor;
-#if __IPHONE_OS_VERSION_MIN_ALLOWED > __IPHONE_6_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
 @dynamic tabStops;
 @dynamic defaultTabInterval;
 #endif
@@ -259,7 +259,7 @@
 - (void)setHyphenationFactor:(CGFloat)hyphenationFactor {
 	self.paragraphStyleForWriting.hyphenationFactor = hyphenationFactor;
 }
-#if __IPHONE_OS_VERSION_MIN_ALLOWED > __IPHONE_6_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
 - (CGFloat)defaultTabInterval {
 	return self.paragraphStyleForReading.defaultTabInterval;
 }

@@ -7,7 +7,7 @@
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, assign) NSInteger ligature;
 @property (nonatomic, assign) CGFloat kern;
-#if __IPHONE_OS_VERSION_MIN_ALLOWED > __IPHONE_6_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
 @property (nonatomic, assign) NSUnderlineStyle strikethroughStyle;
 @property (nonatomic, assign) NSUnderlineStyle underlineStyle;
 #else
@@ -18,7 +18,7 @@
 @property (nonatomic, assign) CGFloat strokeWidth;
 @property (nonatomic, strong) NSShadow *shadow;
 
-#if __IPHONE_OS_VERSION_MIN_ALLOWED > __IPHONE_6_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_6_0
 @property (nonatomic, strong) NSString *textEffect;
 @property (nonatomic, strong) NSTextAttachment *attachment;
 @property (nonatomic, assign) CGFloat baselineOffset;
@@ -27,6 +27,7 @@
 @property (nonatomic, assign) CGFloat obliqueness;
 @property (nonatomic, assign) CGFloat expansion;
 @property (nonatomic, strong) NSArray *writingDirection;
+@property (nonatomic, strong) NSURL *link;
 #endif
 
 @property (nonatomic, assign) CGFloat lineSpacing;
